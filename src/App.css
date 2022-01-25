@@ -1,14 +1,15 @@
-.wrap {
-    width: 1200px;
+.wrapper{
+    max-width: 1200px;
     margin: 0 auto;
-    border: 4px double black;
-    padding: 10px;
 }
-
-.wrapper, .posts {
+.shuttles{
     display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    border: 4px double black;
-
+    flex-wrap: wrap;
+}
+.shuttle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    padding: 20px;
 }
