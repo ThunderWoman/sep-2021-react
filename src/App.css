@@ -1,9 +1,9 @@
-.user__info {
+.userInfo {
     display: flex;
     justify-content: space-between;
 
 
-    padding: 20px;
+    padding: 50px;
 }
 .user {
     display: flex;
@@ -13,12 +13,14 @@
 
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 20px;
 }
-.user__wrap {
-    border: 1px black solid;
-    border-radius: 15px;
+.userWrap {
+    border: 4px double black;
+    border-radius: 20px;
 }
 .posts {
-    padding: 10px;
+    column-gap: 10px;
+    border: 2px black solid;
+    padding: 20px;
 }

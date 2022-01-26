@@ -13,7 +13,7 @@ const UserDetails = ({details , getPosts}) => {
             <h4>{details.email}</h4>
             <h4>{details.website}</h4>
             <h4>{details.phone}</h4>
-            <button onClick={()=>getPosts(details.id)} >click me</button>
+            <button onClick={()=>getPosts(details.id)} >open Data Post</button>
 
         </div>
     );

@@ -23,15 +23,14 @@ const User = ({item}) => {
 
 
     return (
-        <div className='user__wrap'>
-            <div className='user__info'>
+        <div className='userWrap'>
+            <div className='userInfo'>
                 <div className='user'>
                     <h4> {item.id} {item.name}
-                        <button onClick={() => getUserId(item.id)}>getId
-                        </button>
+                        <button onClick={() => getUserId(item.id)}>open Data User</button>
                     </h4>
                 </div>
-                <div className='user__details'>
+                <div className='userDetails'>
                     {user && <UserDetails details={user} getPosts={getPosts}/>}
 
                 </div>
