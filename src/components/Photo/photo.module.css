@@ -1,0 +1,6 @@
+.Photo {
+    display: flex;
+    justify-content: space-between;
+    min-width: 50vw;
+    border: 1px solid black;
+}
