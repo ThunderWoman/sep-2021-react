@@ -22,8 +22,9 @@ const reducer = (state, action) => {
             return {...state, count3: state.count3 - 1};
         case 'reset3':
             return {...state, count3: action.payload};
+        default:
+            throw new Error('MyError');
     }
-    return state;
 };
 
 function App() {
