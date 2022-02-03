@@ -31,28 +31,27 @@ function App() {
     const [state, dispatch] = useReducer(reducer, {count1: 0, count2: 1, count3: 2});
 
     return (
-        <div>
-            <div>
-                <div>{state.count1}</div>
+        <div className={"wrap"}>
+            <div className={"wrapper"}>
+                <div className={"number"}>{state.count1}</div>
                 <button onClick={() => dispatch({type: 'inc'})}>INC</button>
                 <button onClick={() => dispatch({type: 'dec'})}>DEC</button>
                 <button onClick={() => dispatch({type: 'reset', payload: 0})}>RESET</button>
             </div>
-            < div>
-                < div> {state.count2}</div>
+            < div className={"wrapper"}>
+                < div className={"number"}> {state.count2}</div>
                 <button onClick={() => dispatch({type: 'inc2'})}>INC</button>
                 <button onClick={() => dispatch({type: 'dec2'})}>DEC</button>
                 <button onClick={() => dispatch({type: 'reset2', payload: 1})}>RESET</button>
             </div>
-            <div>
-                <div>{state.count3}</div>
+            <div className={"wrapper"}>
+                <div className={"number"}>{state.count3}</div>
                 <button onClick={() => dispatch({type: 'inc3'})}>INC</button>
                 <button onClick={() => dispatch({type: 'dec3'})}>DEC</button>
                 <button onClick={() => dispatch({type: 'reset3', payload: 2})}>RESET</button>
             </div>
         </div>
-    )
-        ;
-};
+    );
+}
 
 export default App;
