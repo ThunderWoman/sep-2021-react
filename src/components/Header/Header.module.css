@@ -4,11 +4,11 @@
     align-items: center;
     height: 70px;
     gap: 20px;
-    background-color: grey;
+    background-color: steelblue;
 }
 
 .Header [class = 'active'] {
-    color: steelblue;
+    color: darkgrey;
 }
 
 a {

@@ -1,4 +1,4 @@
-import css from "./photo.module.css";
+import css from "./Photo.module.css";
 
 const Photo = ({photo}) => {
     const {id, albumId, title, thumbnailUrl} = photo;
