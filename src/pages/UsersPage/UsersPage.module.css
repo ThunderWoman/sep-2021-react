@@ -1,0 +1,7 @@
+.UserPage {
+    display: flex;
+}
+
+.users {
+    min-width: 50%;
+}
