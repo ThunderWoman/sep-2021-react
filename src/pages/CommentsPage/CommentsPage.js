@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {getAllComments} from "../../store";
+import {getAllComments} from "../../store"
 import {Comment} from "../../components";
 
 const CommentsPage = () => {
@@ -19,4 +19,4 @@ const CommentsPage = () => {
     );
 };
 
-export {CommentsPage};
+export default {CommentsPage};
