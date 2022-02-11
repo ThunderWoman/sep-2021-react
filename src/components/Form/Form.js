@@ -1,34 +1,32 @@
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
-import {useEffect} from "react";
 
-import {updateCarById} from "../../store/car.slice";
+import {addCar, updateCar} from "../../store";
 
 const Form = () => {
-    const {carForUpdate} = useSelector(state => state.cars);
+    const {carForUpdate: id} = useSelector(store => store['carReducer']);
+
     const dispatch = useDispatch();
-    const {handleSubmit, reset, setValue, register} = useForm();
+    const {handleSubmit, reset, register} = useForm();
 
     const submit = (data) => {
-        dispatch(updateCarById({id: carForUpdate.id, car: data}))
+        if (id) {
+            dispatch(updateCar({id, data}));
+        }
+        dispatch(addCar({data}));
         reset();
     };
 
-    useEffect(() => {
-        if (carForUpdate) {
-            setValue("model", carForUpdate.model);
-            setValue("price", carForUpdate.price);
-            setValue("year", carForUpdate.year);
-        }
-    }, [carForUpdate]);
-
     return (
+        <div>
         <form onSubmit={handleSubmit(submit)}>
-            <input type="text" placeholder={"model"} {...register("model")}/>
-            <input type="text" placeholder={"price"} {...register("price")}/>
-            <input type="text" placeholder={"year"} {...register("year")}/>
-            <button>Update</button>
+            <label>   Model : <input type="text" placeholder={'model'} {...register('model')}/></label>
+            <label>   Price : <input type="text" placeholder={'price'} {...register('price')}/></label>
+            <label>   Year :  <input type="text" placeholder={'year'} {...register('year')}/></label>
+            <button>{id ? 'Update' : 'Create'}</button>
         </form>
+        </div>
     )
 };
 

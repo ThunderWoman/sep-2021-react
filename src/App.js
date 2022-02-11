@@ -1,18 +1,22 @@
-import './App.css'
-
+import {Routes, Route} from "react-router-dom";
 import {useSelector} from "react-redux";
 
-import {Form} from "./components";
-import {Cars} from "./components";
+import './App.css'
+import {Header} from "./components";
+import {CarsPage, CommentsPage, PostsPage, UsersPage} from "./pages";
 
 const App = () => {
-    const {users} = useSelector(state => state.users);
 
     return (
         <div>
-            <Form/>
-            <Cars/>
-            {users.map((user, index) => <div key={index}>{user}</div>)}
+            <Routes>
+                <Route path={'/'} element = {<Header/>}>
+                    <Route path={'/cars'} element={<CarsPage/>}/>
+                    <Route path={'/users'} element = {<UsersPage/>}/>
+                    <Route path={'/posts'} element = {<PostsPage/>}/>
+                    <Route path={'/comments'} element = {<CommentsPage/>}/>
+                </Route>
+            </Routes>
         </div>
     );
 };
