@@ -2,17 +2,18 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useForm} from "react-hook-form";
 
-import {addCar, updateCar} from "../../store";
+import {addCar, updateCarThunk} from "../../store";
+import store from "../../store/store";
 
 const Form = () => {
-    const {carForUpdate: id} = useSelector(state => state['carReducer']);
-
-    const dispatch = useDispatch();
     const {handleSubmit, reset, register} = useForm();
+
+    const {carForUpdate: id} = useSelector(store => store['carReducer']);
+    const dispatch = useDispatch();
 
     const submit = (data) => {
         if (id) {
-            dispatch(updateCar({id, data}));
+            dispatch(updateCarThunk({id, data}));
         }
         dispatch(addCar({data}));
         reset();
@@ -20,14 +21,14 @@ const Form = () => {
 
     return (
         <div>
-        <form onSubmit={handleSubmit(submit)}>
-            <label>   Model : <input type="text" placeholder={'model'} {...register('model')}/></label>
-            <label>   Price : <input type="text" placeholder={'price'} {...register('price')}/></label>
-            <label>   Year :  <input type="text" placeholder={'year'} {...register('year')}/></label>
-            <button>{id ? 'Update' : 'Create'}</button>
-        </form>
+            <form onSubmit={handleSubmit(submit)}>
+                <label> Model : <input type="text" {...register('model')}/></label>
+                <label> Price : <input type="text" {...register('price')}/></label>
+                <label> Year : <input type="text" {...register('year')}/></label>
+                <button>{id ? 'Update' : 'Create'}</button>
+            </form>
         </div>
-    )
+    );
 };
 
 export {Form};

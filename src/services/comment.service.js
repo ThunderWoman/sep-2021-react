@@ -1,5 +1,6 @@
-import {axiosService} from "./axios.service";
+import {jsonService} from "./json.service";
+import {urlsJson} from "../configs";
 
 export const commentService = {
-    getAll: () => axiosService.get('https://jsonplaceholder.typicode.com/comments').then(value => value.data)
+    getAll: () => jsonService.get(urlsJson.comments).then(value => value.data)
 };

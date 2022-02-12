@@ -55,7 +55,7 @@ const carSlice = createSlice({
 
     reducers: {
         addCar: (state, action) => {
-            state.cars.push(action.payload.car);
+            state.cars.push(action.payload.data);
         },
         deleteCar: (state, action) => {
             state.cars = state.cars.filter(car => car.id !== action.payload.car.id);

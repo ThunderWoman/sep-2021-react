@@ -16,7 +16,7 @@ const Cars = () => {
     return (
         <div>
             {status === 'pending' && <h2>Loading</h2>}
-            {error && <h1>{JSON.stringify(error)}</h1>}
+            {error && <h1>{error}</h1>}
             {cars.map(car => <Car key={car.id} car={car}/>)}
         </div>
     );
