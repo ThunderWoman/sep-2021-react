@@ -7,7 +7,8 @@ export const getAllCars = createAsyncThunk(
     'carSlice/getAllCars',
     async (_, {dispatch, rejectWithValue}) => {
         try {
-            return await carService.getAll();
+            const cars = await carService.getAll();
+            return cars;
         } catch (e) {
             return rejectWithValue(e.message);
         }
@@ -15,10 +16,10 @@ export const getAllCars = createAsyncThunk(
 
 export const createCar = createAsyncThunk(
     'carSlice/createCar',
-    async ({data}, {dispatch}) => {
+    async ({data: newCar, id}, {dispatch}) => {
         try {
-            const newCar = await carService.create(data);
-            dispatch(addCar(newCar));
+            const data = await carService.create(newCar);
+            dispatch(addCar(data));
         } catch (e) {
         }
     });

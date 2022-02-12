@@ -4,24 +4,19 @@ import {commentService} from "../services";
 export const getAllComments = createAsyncThunk(
     'commentsSlice/getAllComments',
     async (_, {dispatch}) => {
-        try {
-            const comments = await commentService.getAll();
-            dispatch(getComments(comments))
-        } catch (e) {
-            console.log(e)
-        }
-    }
-);
+        const comments = await commentService.getAll();
+        dispatch(setComments(comments));
+    });
 
 const initialState = {
-    comments:[]
+    comments: []
 }
 
 const commentsSlice = createSlice({
-    name:'commentsSlice',
+    name: 'commentsSlice',
     initialState,
-    reducers:{
-        getComments:(state, action) => {
+    reducers: {
+        setComments: (state, action) => {
             state.comments = [...action.payload]
         }
     }
@@ -29,5 +24,6 @@ const commentsSlice = createSlice({
 
 const commentsReducer = commentsSlice.reducer;
 
-export const {getComments} = commentsSlice.actions
+export const {setComments} = commentsSlice.actions;
+
 export default commentsReducer;

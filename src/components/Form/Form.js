@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import {addCar, updateCar} from "../../store";
 
 const Form = () => {
-    const {carForUpdate: id} = useSelector(store => store['carReducer']);
+    const {carForUpdate: id} = useSelector(state => state['carReducer']);
 
     const dispatch = useDispatch();
     const {handleSubmit, reset, register} = useForm();

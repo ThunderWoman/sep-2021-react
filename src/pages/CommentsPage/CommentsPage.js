@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getAllComments} from "../../store"
 import {Comment} from "../../components";
 
-const CommentsPage = () => {
+export const CommentsPage = () => {
     const {comments} = useSelector(state => state['commentsReducer']);
     const dispatch = useDispatch();
 
