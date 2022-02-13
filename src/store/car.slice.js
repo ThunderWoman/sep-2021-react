@@ -5,10 +5,9 @@ import {carService} from "../services";
 
 export const getAllCars = createAsyncThunk(
     'carSlice/getAllCars',
-    async (_, {dispatch, rejectWithValue}) => {
+    async (_, {rejectWithValue}) => {
         try {
-            const cars = await carService.getAll();
-            return cars;
+            return await carService.getAll();
         } catch (e) {
             return rejectWithValue(e.message);
         }

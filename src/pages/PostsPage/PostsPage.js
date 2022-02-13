@@ -5,9 +5,7 @@ import {getAllPosts} from "../../store";
 import {Post} from "../../components";
 
 const PostsPage = () => {
-    const {posts} = useSelector(state => state['postsReducer']);
-    const dispatch = useDispatch();
-
+    const {posts} = useSelector(state => state['postsReducer']), dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllPosts())
     }, []);

@@ -5,12 +5,11 @@ import {getAllUsers} from "../../store";
 import {User} from "../../components";
 
 const UsersPage = () => {
-    const {users} = useSelector(store => store['usersReducer']);
+    const {users} = useSelector(state => state['usersReducer']);
     const dispatch = useDispatch();
-
     useEffect(() => {
         dispatch(getAllUsers())
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>
